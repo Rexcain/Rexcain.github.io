@@ -217,7 +217,7 @@ a:hover {
 
 /* 艺术作品 Overlay */
 .art-thumb {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
 }
 
 .art-overlay {
