@@ -2,39 +2,61 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bio — Menghan Rex Jiang</title>
+  <meta name="description" content="Menghan Rex Jiang is a composer/improviser, digital artist, and writer based in the United States." />
+  <meta name="author" content="Menghan Rex Jiang" />
+  <meta name="theme-color" content="#0e0017" />
+  <link rel="canonical" href="https://rexcain.github.io/bio.html" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- 分享预览（Open Graph / Twitter） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rexcain.github.io/bio.html" />
+  <meta property="og:title" content="Bio — Menghan Rex Jiang" />
+  <meta property="og:description" content="Menghan Rex Jiang is a composer/improviser, digital artist, and writer based in the United States." />
+  <meta name="twitter:card" content="summary" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- 导航栏 -->
-  <nav id="navbar">
-    <span class="nav-name">
-      <a href="index.html">Menghan Rex Jiang</a>
-    </span>
-    <div class="nav-links">
+  <header id="navbar">
+    <a class="nav-name" href="index.html">Menghan Rex Jiang</a>
+    <nav class="nav-links" aria-label="Main">
       <a href="performance.html">Performance</a>
       <a href="visual-art.html">Visual Arts</a>
-      <a href="bio.html">Bio</a>
-    </div>
-  </nav>
+      <a href="bio.html" aria-current="page">Bio</a>
+    </nav>
+  </header>
 
- <!-- Bio 区块 -->
-  <section id="about" class="section about-section">
-    <h2 class="section-title">Bio</h2>
-    <div class="about-content">
-      <p>
-        Menghan Rex Jiang is a composer/improviser, digital artist, and writer based in 
-        United States.  
-      </p>
-      <div class="contact-links">
-        <a href="rxsrecs@gmail.com">Email</a>
-        <a href="https://youtube.com/channel/UCQjOI5kVeLIl44JwUlTnqJA" target="_blank">
-            YouTube
-        </a>
+  <main id="main">
+
+    <!-- Bio 区块 -->
+    <section id="about" class="section about-section" aria-labelledby="about-title">
+      <h1 id="about-title" class="section-title">Bio</h1>
+      <div class="about-content">
+        <p>
+          Menghan Rex Jiang is a composer/improviser, digital artist, and writer based in
+          United States.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:rxsrecs@gmail.com">Email</a>
+          <a href="https://youtube.com/channel/UCQjOI5kVeLIl44JwUlTnqJA" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year">2026</span> Menghan Rex Jiang All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
