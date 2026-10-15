@@ -262,6 +262,67 @@ a:hover {
   opacity: 1;
 }
 
+/* Software 项目卡片（无缩略图、不可点击） */
+.project-card {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 100%;
+  padding: 1.5rem 1.4rem;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.project-card .project-status {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--border);
+}
+
+.project-card .project-note {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.project-card .project-sub {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.project-card .project-desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+.project-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+.project-tags li {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--text-secondary);
+  border-radius: 999px;
+  color: var(--text-secondary);
+}
+
 /* 图片加载失败时的占位 */
 .card-thumb.is-broken {
   background:
@@ -487,7 +548,8 @@ footer {
   }
 
   .nav-links {
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
   }
 
   .nav-links a {
