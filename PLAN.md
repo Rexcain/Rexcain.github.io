@@ -18,4 +18,3 @@
 ## 约定
 
 - 配色（紫 / 绿 / 黄）保持不变。
-- `assets/images/WaterMonster.png` 不提交。
