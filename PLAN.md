@@ -12,7 +12,7 @@
 
 ## 之后可以考虑
 
-- Software 页项目公开后，给卡片加上仓库或演示链接（目前仓库私有，不放链接）。
+- Software 页其余项目公开后，给卡片加上仓库或演示链接（Envelope Ledger 已加；其余仓库仍私有，不放链接）。
 - Magic Academy 定名后更新卡片标题，去掉 "(working title)"。
 
 ## 约定

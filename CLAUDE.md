@@ -22,7 +22,7 @@
 
 - 配色紫 / 绿 / 黄保持不变（`--bg #0e0017`、`--text-primary #4dbe79`、`--border #fffc31`）。
 - 新页面要加进每一页的导航栏，并带上页脚、meta description 和 Open Graph 标签。
-- Software 页项目：Palinmnesia、Magic Academy（暂定名，gameDev）、Chiptune Noisemaker。仓库都是私有的，卡片不放链接。
+- Software 页项目：Envelope Ledger、Palinmnesia、Magic Academy（暂定名，gameDev）、Chiptune Noisemaker。Envelope Ledger 是公开仓库，卡片带「Open app」和「Source」链接；其余仓库仍是私有的，卡片不放链接，公开后再加。
 - `assets/images/WaterMonster.png` 不提交。
 - commit 和开发者日志注明时间戳和设备（laptop 或 mac-mini；云端会话另行注明）。作者统一写 Menghan Rex Jiang。
 
@@ -31,6 +31,9 @@
 见 `PLAN.md`。
 
 ## 开发者日志
+
+### 2026-10-17 21:40 EDT · mac-mini
+- Software 页新增 Envelope Ledger 卡片（Released，链接到 https://rexcain.github.io/Envelope-Budgeting-Tool/ 和源码仓库），放在第一位；`style.css` 加 `.project-links`。
 
 ### 2026-10-15 16:23 EDT · 云端会话（Claude Code）
 - 新建 `README.md`（面向读者）、`PLAN.md`（开发计划）、`CLAUDE.md`（本文件），内容根据提交历史和项目记忆整理。

@@ -299,6 +299,18 @@ a:hover {
   font-style: italic;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.project-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
 .project-tags {
   list-style: none;
   display: flex;
