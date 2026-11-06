@@ -36,6 +36,9 @@
 
 ## 开发者日志
 
+### 2026-11-06 02:25 EST · mac-mini（Claude Code）
+- Bio：演出一段压缩成三句（去掉五个城市、The Warehouse / Ash Fure、"for bands and film"）。
+
 ### 2026-11-06 02:15 EST · mac-mini（Claude Code）
 - Software 页：去掉所有项目卡片的技术标签（Rx 觉得太多），删掉不再用的 `.project-tags` 样式。
 
