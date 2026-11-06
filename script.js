@@ -3,12 +3,12 @@
 // ==============================
 const navbar = document.getElementById('navbar');
 
-function updateNavbar() {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+// 首页没有导航栏
+if (navbar) {
+  const updateNavbar = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
 }
-
-window.addEventListener('scroll', updateNavbar, { passive: true });
-updateNavbar();
 
 // ==============================
 // Modal 通用逻辑

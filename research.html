@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research: theREALinst — Menghan Rex Jiang</title>
+  <meta name="description" content="theREALinst: physically modeled brass and piano, each played by a simulated performer who practices on the instrument before it plays." />
+  <meta name="author" content="Menghan Rex Jiang" />
+  <meta name="theme-color" content="#0e0017" />
+  <link rel="canonical" href="https://rexcain.github.io/research.html" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- 分享预览（Open Graph / Twitter） -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rexcain.github.io/research.html" />
+  <meta property="og:title" content="theREALinst — Menghan Rex Jiang" />
+  <meta property="og:description" content="Physically modeled brass and piano, each played by a simulated performer who practices on the instrument before it plays." />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- 导航栏 -->
+  <header id="navbar">
+    <a class="nav-name" href="index.html">Menghan Rex Jiang</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="software.html">Software</a>
+      <a href="performance.html">Performance</a>
+      <a href="visual-art.html">Visual Arts</a>
+      <a href="bio.html">Bio</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="section prose" aria-labelledby="research-title">
+      <p class="section-title">Research</p>
+      <h1 id="research-title">theREALinst</h1>
+      <p class="lede">Physically modeled instruments, played by virtual performers who have to learn them first.</p>
+      <p class="meta">In development since 2026 · C++, Apple Metal, Python · Dartmouth College</p>
+
+      <!-- 研究问题 -->
+      <p class="question">
+        How does a virtual instrument change when it comes with a player who must learn to control it?
+      </p>
+
+      <p>
+        Most physical models are played by writing their control signals directly: a lip frequency curve
+        for a trumpet, a hammer velocity for a piano note. Real instruments are not played that way.
+        A trumpeter does not know the lip frequency of a G5; they know what it feels like to land it,
+        and they learned that by practicing on one instrument with one body.
+      </p>
+      <p>
+        theREALinst pairs each instrument model with a simulated performer. The performer practices
+        on that particular instrument, keeps what it learned, and then plays a score by listening and
+        correcting itself. The same score on a different instrument, or with a different player,
+        comes out differently for physical reasons rather than random ones. My longer aim is a tool that
+        lets composers and performers explore techniques and instruments they cannot easily get their
+        hands on, including speculative instruments assembled from modeled parts.
+      </p>
+      <p>
+        The project began as the audio engine of a game I am co-developing and has grown into the center of my research.
+      </p>
+
+      <!-- 试听 -->
+      <h2 id="listen">Listen</h2>
+      <p>The instruments and the players are both modeled on physical mechanisms. In each pair, the score stays the same and one condition changes.</p>
+
+      <h3>Multiphonics</h3>
+      <p>Same fingering, different lips.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Horn, second valve half down</span>
+          <span class="audio-desc">Lips at 230 Hz · less air · lips at 240 Hz</span>
+          <audio controls preload="none" src="assets/audio/multiphonics-horn.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Practice</h3>
+      <p>The same trumpet étude. The first player has only practiced single notes. The second has gone through the full practice course and corrects its pitch by ear.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Unpracticed</span>
+          <audio controls preload="none" src="assets/audio/etude-unpracticed.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Practiced</span>
+          <audio controls preload="none" src="assets/audio/etude-practiced.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Breath</h3>
+      <p>Three long tones on the trumpet.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Steady Breath</span>
+          <audio controls preload="none" src="assets/audio/tone-steady.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Unsteady Breath</span>
+          <audio controls preload="none" src="assets/audio/tone-unsteady.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Double tonguing</h3>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Trumpet</span>
+          <audio controls preload="none" src="assets/audio/trumpet-tonguing.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Horn</span>
+          <audio controls preload="none" src="assets/audio/horn-tonguing.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Phrases</h3>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Trumpet: fanfare</span>
+          <audio controls preload="none" src="assets/audio/trumpet-call.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Trombone: arpeggio</span>
+          <audio controls preload="none" src="assets/audio/trombone-call.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Brass chorale</h3>
+      <p>The same chorale for trumpet, horn and tuba, played by two different brass models.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Earlier brass synth</span>
+          <span class="audio-desc">A digital waveguide model after <a href="https://ccrma.stanford.edu/software/stk/classstk_1_1Brass.html" target="_blank" rel="noopener">STK's Brass</a> (Cook &amp; Scavone, CCRMA): the lips are a single resonator, the bore a delay line.</span>
+          <audio controls preload="none" src="assets/audio/brass-chorale-old.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">theREALbrass</span>
+          <span class="audio-desc">Finite-difference simulation of the bore with two-mode lips, played by virtual performers who practiced on it.</span>
+          <audio controls preload="none" src="assets/audio/brass-chorale-real.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Piano</h3>
+      <p class="note">Coming soon.</p>
+
+      <!-- 乐器 -->
+      <h2>The instruments</h2>
+
+      <h3>theREALbrass: trumpet, trombone, horn, tuba</h3>
+      <p>
+        The air column is simulated sample by sample, following the finite-difference approach of the
+        <a href="https://www.ness.music.ed.ac.uk/" target="_blank" rel="noopener">NESS project</a> (Bilbao &amp; Chick, 2013);
+        the trumpet's resonances land within 1% of their published measurements. The lips vibrate in two modes,
+        after Cullen's (2000) measurements on artificial lips, so they can sound on either side of a resonance as
+        real players do. The valves have mass, springs and felt, can be half-pressed, and click when pressed.
+        At loud dynamics the sound turns brassy through nonlinear wave steepening (Myers et al., 2012).
+      </p>
+
+      <h3>theREALpiano: a Steinway D</h3>
+      <p>
+        Built from the published string, hammer and bridge parameters of a Steinway D (Chabassier &amp; Duruflé, 2012).
+        The strings vibrate in three directions with geometric nonlinearity, which gives rise to phantom partials
+        (Chabassier, Chaigne &amp; Joly, 2013; Ducceschi &amp; Bilbao, 2022). The soundboard has ribs and two bridges,
+        and the grand action, with escapement, dampers and pedal, follows Hirschkorn's (2004) model.
+      </p>
+
+      <!-- 演奏者 -->
+      <h2>The players</h2>
+
+      <h3>A brass player that practices like a student</h3>
+      <p>
+        It practices the way a student does: long tones, scales, tonguing, arpeggios, études. It finds its own
+        fingerings, pulls a slide when a note sits sharp, switches to double tonguing when the notes get fast,
+        and decides where to breathe. Its ear tells pitches apart as finely as a typical listener
+        (Nelson, Stanton &amp; Freyman, 1983), and its lungs follow measured pressure–volume data (Rahn et al., 1946).
+      </p>
+
+      <h3>A pianist with a body</h3>
+      <p>
+        Its arms, hands and fingers are built from anthropometric data (NASA, 1978), with finger muscles after
+        Valero-Cuevas et al. (1998) and fingertip pads after Wu et al. (2003). It calibrates its touch finger by
+        finger and rehearses before it plays. For its loudest notes it strikes the key from above, as pianists do
+        (Goebl et al., 2005; Furuya et al., 2010).
+      </p>
+
+      <!-- 未解决的问题 -->
+      <h2>Open problems</h2>
+      <ul>
+        <li><strong>Horn and tuba</strong> do not yet play convincingly. Their bore shapes are inferred from sparse measurements, and I am writing practice material suited to each instrument instead of transposing the trumpet's.</li>
+        <li><strong>Piano chords:</strong> when three fingers flex together, the reaction lifts the hand and outer fingers leave their keys. Rehearsal cannot fix this; the hand mechanics have to change.</li>
+        <li><strong>Piano dynamic range</strong> is narrower than a real instrument's, and the radiation model is still a simple monopole.</li>
+        <li><strong>Evaluation:</strong> so far the instruments have been checked against published measurements and by my own listening. I have not yet tested them with other composers and performers, or measured how much the player model contributes to what listeners hear.</li>
+      </ul>
+
+      <!-- 方向 -->
+      <h2>Next</h2>
+      <ul>
+        <li>Piano: rebuilding the pianist on the same practice model as the brass player, so it learns its own touch and fingering. Audio coming soon.</li>
+        <li>Brass multiphonics by singing while playing, through a vocal tract coupled to the player's mouth, and lip parameters suited to low brass.</li>
+        <li>The rest of the practice course: common melodies, multiphonics inside a melody, and playing without a mouthpiece.</li>
+        <li>Upright bass and drum kit, toward a jazz quartet of virtual players.</li>
+        <li>Speculative instruments assembled from modeled parts, and an interface for composers to try a technique and hear how a player gets there.</li>
+      </ul>
+
+      <!-- 工作方式 -->
+      <h2>How I work</h2>
+      <p>
+        I set the direction, listen to every render, and make the musical and physical judgments. Much of the
+        implementation is written with Claude Code, and every design decision is documented next to the code with
+        its sources. The instruments render through a headless offline DAW I built for this project.
+      </p>
+
+      <!-- 参考文献 -->
+      <h2>Selected references</h2>
+      <ul class="refs">
+        <li>Bilbao, S. et al. NESS: Next Generation Sound Synthesis project. University of Edinburgh. Brass user documentation, Harrison, 2015.</li>
+        <li>Bilbao, S. &amp; Chick, J. Finite difference time domain simulation for the brass instrument bore. <em>JASA</em>, 2013.</li>
+        <li>Cullen, J. S. <em>A study of brass instrument acoustics using an artificial lip reed mechanism, laser Doppler anemometry and other techniques.</em> PhD thesis, University of Edinburgh, 2000.</li>
+        <li>Adachi, S. &amp; Sato, M. Trumpet sound simulation using a two-dimensional lip vibration model. <em>JASA</em>, 1996.</li>
+        <li>Chabassier, J., Chaigne, A. &amp; Joly, P. Modeling and simulation of a grand piano. <em>JASA</em>, 2013.</li>
+        <li>Myers, A., Pyle, R. W., Gilbert, J., Campbell, M., Chick, J. &amp; Logie, S. Effects of nonlinear sound propagation on the characteristic timbres of brass instruments. <em>JASA</em>, 2012.</li>
+        <li>Chabassier, J. &amp; Duruflé, M. <em>Physical parameters for piano modeling.</em> INRIA Research Report RT-0425, 2012.</li>
+        <li>Ducceschi, M. &amp; Bilbao, S. Simulation of the geometrically exact nonlinear string via energy quadratisation. <em>Journal of Sound and Vibration</em>, 2022.</li>
+        <li>Hirschkorn, M. C. <em>Dynamic model of a piano action mechanism.</em> MASc thesis, University of Waterloo, 2004.</li>
+        <li>Goebl, W., Bresin, R. &amp; Galembo, A. Touch and temporal behavior of grand piano actions. <em>JASA</em>, 2005.</li>
+        <li>Furuya, S., Altenmüller, E., Katayose, H. &amp; Kinoshita, H. Control of multi-joint arm movements for the manipulation of touch in keystroke by expert pianists. <em>BMC Neuroscience</em>, 2010.</li>
+        <li>Rahn, H., Otis, A. B., Chadwick, L. E. &amp; Fenn, W. O. The pressure-volume diagram of the thorax and lung. <em>American Journal of Physiology</em>, 1946.</li>
+        <li>NASA. <em>Anthropometric Source Book</em>, Vol. I–II. NASA Reference Publication 1024, 1978.</li>
+        <li>Valero-Cuevas, F. J., Zajac, F. E. &amp; Burgar, C. G. Large index-fingertip forces are produced by subject-independent patterns of muscle excitation. <em>Journal of Biomechanics</em>, 1998.</li>
+        <li>Wu, J. Z., Dong, R. G., Smutz, W. P. &amp; Rakheja, S. Dynamic interaction between a fingerpad and a flat surface: experiments and analysis. <em>Medical Engineering &amp; Physics</em>, 2003.</li>
+        <li>Nelson, D., Stanton, M. &amp; Freyman, R. A general equation describing frequency discrimination as a function of frequency and sensation level. <em>JASA</em>, 1983.</li>
+        <li>Smith, J. O. <em>Physical Audio Signal Processing.</em> CCRMA, Stanford.</li>
+      </ul>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year">2026</span> Menghan Rex Jiang All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

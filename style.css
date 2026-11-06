@@ -128,36 +128,9 @@ a:hover {
 /* ==============================
    Hero
 ============================== */
-#hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
-.hero-content h1 {
-  font-size: clamp(2.5rem, 8vw, 7rem);
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-}
 
-.hero-sub {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
 
-.hero-line {
-  width: 1px;
-  height: 60px;
-  background: var(--border);
-  margin: 2.5rem auto 0;
-  animation: fadeDown 1.2s ease forwards;
-}
 
 @keyframes fadeDown {
   from { opacity: 0; transform: scaleY(0); transform-origin: top; }
@@ -586,4 +559,234 @@ footer {
     opacity: 1;
     translate: none;
   }
+}
+
+/* ==============================
+   长文页面（Research）
+============================== */
+.prose {
+  max-width: 760px;
+}
+
+.prose h1 {
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.prose .lede {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.prose .meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+}
+
+.prose .question {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--accent);
+  border-left: 2px solid var(--border);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.prose h2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 4rem 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 2rem 0 0.75rem;
+}
+
+.prose p,
+.prose li {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.prose p {
+  margin-bottom: 1.1rem;
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+}
+
+.prose a {
+  border-bottom: 1px solid var(--border);
+}
+
+.prose em,
+.prose strong {
+  color: var(--text-primary);
+}
+
+.prose .note {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.prose figure {
+  margin: 2rem 0;
+}
+
+.prose figure img {
+  height: auto;
+  object-fit: contain;
+  border: 1px solid #2a1a3a;
+}
+
+.prose figcaption {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  opacity: 0.85;
+  margin-top: 0.6rem;
+}
+
+/* 试听 */
+.audio-list {
+  list-style: none;
+  padding: 0 !important;
+}
+
+.audio-list li {
+  margin-bottom: 1.5rem;
+}
+
+.audio-list .audio-title {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.audio-list .audio-desc {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.audio-list audio {
+  width: 100%;
+  height: 36px;
+}
+
+.prose .refs li {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+
+
+
+@media (max-width: 600px) {
+  .prose h1 { font-size: 1.8rem; }
+}
+
+/* Bio 正文里的链接、段距 */
+.about-content p {
+  margin-bottom: 1.4rem;
+}
+
+.about-content p a {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-content .contact-links {
+  margin-top: 2.5rem;
+}
+
+/* ==============================
+   首页：只有一屏（名字、定位、导航），不往下滑
+============================== */
+.home-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 8vw;
+}
+
+.home-name {
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  font-weight: 200;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.home-sub {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.home-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-top: 3.5rem;
+}
+
+.home-links a {
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), opacity var(--transition);
+}
+
+.home-links a:hover {
+  opacity: 1;
+  border-bottom-color: var(--border);
+}
+
+/* 播放器跟随深色主题 */
+.audio-list audio {
+  color-scheme: dark;
+}
+
+/* Software 页的卡片：平时灰框，悬停变黄 */
+.project-card {
+  border-color: #555;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: var(--border);
 }
