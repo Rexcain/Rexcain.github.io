@@ -36,6 +36,9 @@
 
 ## 开发者日志
 
+### 2026-11-06 02:45 EST · mac-mini（Claude Code）
+- Bio：DREAM Studio 研究助理改成过去时（2026 年 2–5 月，已结束）。
+
 ### 2026-11-06 02:25 EST · mac-mini（Claude Code）
 - Bio：演出一段压缩成三句（去掉五个城市、The Warehouse / Ash Fure、"for bands and film"）。
 
