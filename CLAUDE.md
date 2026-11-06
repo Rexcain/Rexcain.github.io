@@ -36,6 +36,9 @@
 
 ## 开发者日志
 
+### 2026-11-06 02:15 EST · mac-mini（Claude Code）
+- Software 页：去掉所有项目卡片的技术标签（Rx 觉得太多），删掉不再用的 `.project-tags` 样式。
+
 ### 2026-11-06 01:50 EST · mac-mini（Claude Code）
 - Software 页：删掉 Chiptune Noisemaker、Envelope Ledger；Magic Academy 改名 Multi-Agents Video Game；项目卡片改成平时灰框、悬停变黄。
 - 研究页：The instruments、The players 改成短段落，保留文献引用（补进 Myers 2012、Chabassier & Duruflé 2012、Ducceschi & Bilbao 2022、Hirschkorn 2004、Rahn 1946、NASA 1978、Valero-Cuevas 1998、Wu 2003）；去掉数字方框；Next 按现状重写；How I work 精简。Listen：Air 一组、大号多音删掉；新增 Double tonguing（小号、圆号）；Brass chorale 改成旧 STK brass 与 theREALbrass 对比（旧的在前）；Practice 没练过的在前。

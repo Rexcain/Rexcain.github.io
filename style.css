@@ -284,23 +284,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.project-tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: auto;
-  padding-top: 0.6rem;
-}
 
-.project-tags li {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  padding: 0.15rem 0.55rem;
-  border: 1px solid var(--text-secondary);
-  border-radius: 999px;
-  color: var(--text-secondary);
-}
 
 /* 图片加载失败时的占位 */
 .card-thumb.is-broken {
