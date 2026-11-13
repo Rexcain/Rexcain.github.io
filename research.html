@@ -251,42 +251,71 @@
 
       <!-- 乐器 -->
       <h2>The instruments</h2>
+      <p>Each instrument is assembled from parts. Each part is a physical model taken from a published paper or built from published measurements. Where no measurement exists, the value is my estimate, and I say so below.</p>
 
       <h3>theREALbrass: trumpet, trombone, horn, tuba</h3>
+      <ul>
+        <li><strong>Air column:</strong> a one-dimensional lossy horn equation, solved sample by sample by finite differences (Bilbao &amp; Chick, 2013), with the wall losses fitted as in Harrison-Harsley (2018).</li>
+        <li><strong>Bore shape:</strong> the trumpet's is fitted to the seven impedance peaks measured by Bilbao &amp; Chick (2013), and lands within 1% of each. The trombone's is taken section by section from Braden's (2006) measurements of a real trombone. For the horn and tuba there are no published bore measurements, so I fitted their shapes to published dimensions and to their harmonic series.</li>
+        <li><strong>Mouthpieces:</strong> manufacturers' published dimensions.</li>
+        <li><strong>Lips:</strong> two modes of vibration, one that swings outward and one that closes inward, with the parameters Cullen (2000) measured on artificial lips. Real players' lips show the same two modes (Newton, Campbell &amp; Gilbert, 2008). Lip width and mass follow Boutin, Smith &amp; Wolfe (2020).</li>
+        <li><strong>Valves and slide:</strong> each valve joins three tubes and opens gradually as the piston moves (Bilbao, 2011). The pistons have mass, springs and felt stops and can be half-pressed; these mechanical values are my estimates. The trombone slide changes the length of tube smoothly between positions.</li>
+        <li><strong>Brassiness:</strong> at loud dynamics the wave steepens as it travels (Hirschberg et al., 1996; Myers et al., 2012). The trumpet and horn model this in the straight part of the tube; the trombone and tuba model it along the whole bore.</li>
+        <li><strong>Bell:</strong> sound radiates through a circuit that approximates the radiation of an open pipe (Silva et al., 2009).</li>
+        <li><strong>Breath noise:</strong> turbulent noise in the air leaking through the lips, switched on and off as the lips open and close (Chafe, 1990).</li>
+      </ul>
       <p>
-        The air column is simulated sample by sample, following the finite-difference approach of the
-        <a href="https://www.ness.music.ed.ac.uk/" target="_blank" rel="noopener">NESS project</a> (Bilbao &amp; Chick, 2013);
-        the trumpet's resonances land within 1% of their published measurements. The lips vibrate in two modes,
-        after Cullen's (2000) measurements on artificial lips, so they can sound on either side of a resonance as
-        real players do. The valves have mass, springs and felt, can be half-pressed, and click when pressed.
-        At loud dynamics the sound turns brassy through nonlinear wave steepening (Myers et al., 2012).
+        The parts are joined in the order the air travels: lungs, mouth and vocal tract, lips, mouthpiece, tube with valves or slide, bell.
+        Neighbouring parts exchange pressure and air flow at every step. The lips are solved together with the mouth, so the air the lips let through lowers the pressure in the mouth, and the pressure in the mouthpiece pushes back on the lips.
+        The simulation runs at 192 kHz and is brought down to 48 kHz for the renderer.
       </p>
 
       <h3>theREALpiano: a Steinway D</h3>
+      <ul>
+        <li><strong>Strings:</strong> the length, diameter and tension of each string of a Steinway D, taken from Chabassier &amp; Duruflé (2012). Each string vibrates in three directions, as a sum of its modes (Bank, Zambon &amp; Fontana, 2010). Its tension rises as it swings wider (Ducceschi &amp; Bilbao, 2022), and this produces the piano's phantom partials (Bank &amp; Sujbert, 2005).</li>
+        <li><strong>Hammers:</strong> felt that gets stiffer the harder it is squeezed, with each note's values from Chabassier &amp; Duruflé (2012).</li>
+        <li><strong>Action:</strong> key, wippen, jack, repetition lever and hammer as five rigid bodies touching through felt and leather, with friction, after Hirschkorn's (2004) measurements of a grand action. It is regulated in the simulation to the five distances a technician sets.</li>
+        <li><strong>Dampers and pedal:</strong> each damper is a felt that the key lifts and that falls back under its own weight. The sustain pedal lifts all of them at once. Their parameters are my estimates.</li>
+        <li><strong>Bridge and soundboard:</strong> strings and soundboard push on each other at the bridge in both directions (Chabassier, Chaigne &amp; Joly, 2013). This is what gives a piano note its fast-then-slow decay (Weinreich, in Askenfelt, 1990). The soundboard has the outline, ribs, two bridges, woods and thicknesses of a Steinway D (Chabassier &amp; Duruflé, 2012). Its lowest modes are in the right range but do not yet match Wogram's measurements (in Askenfelt, 1990) one by one.</li>
+        <li><strong>Radiation:</strong> the soundboard's motion is turned into sound pressure at one metre, as a single point source.</li>
+      </ul>
       <p>
-        Built from the published string, hammer and bridge parameters of a Steinway D (Chabassier &amp; Duruflé, 2012).
-        The strings vibrate in three directions with geometric nonlinearity, which gives rise to phantom partials
-        (Chabassier, Chaigne &amp; Joly, 2013; Ducceschi &amp; Bilbao, 2022). The soundboard has ribs and two bridges,
-        and the grand action, with escapement, dampers and pedal, follows Hirschkorn's (2004) model.
+        The parts are joined in the order a note travels: finger, key, action, hammer, strings, bridge, soundboard, sound.
+        The hammer and the strings it strikes are solved together, and so are all the strings and the soundboard. Strings that are not played still ring along with the ones that are, whether or not the pedal is down.
+        The simulation runs at 96 kHz.
       </p>
 
       <!-- 演奏者 -->
       <h2>The players</h2>
 
       <h3>A brass player that practices like a student</h3>
+      <ul>
+        <li><strong>Lungs:</strong> follow measured pressure–volume curves (Rahn et al., 1946) and the lung volumes of wind players (Bouhuys, 1964). As the air runs out, the lungs can no longer supply the pressure and the note sags.</li>
+        <li><strong>Mouth and vocal tract:</strong> the mouth is an air volume. From the vocal folds to the lips is a 17 cm tube, computed the same way as the instrument's tube.</li>
+        <li><strong>Tongue:</strong> a valve behind the teeth: tip for “t”, back for “k”. Releasing it starts the note (Hruška et al., 2015; Li et al., 2016).</li>
+        <li><strong>Embouchure:</strong> how tense the lips are, how far apart, and how hard to blow. Blowing pressure rises with pitch (Fletcher &amp; Tarnopolsky, 1999).</li>
+        <li><strong>Fingers:</strong> press the valves with a set force. The trombonist moves the slide from position to position.</li>
+        <li><strong>Ear:</strong> hears pitch differences as finely as a typical listener (Nelson, Stanton &amp; Freyman, 1983).</li>
+      </ul>
       <p>
-        It practices the way a student does: long tones, scales, tonguing, arpeggios, études. It finds its own
-        fingerings, pulls a slide when a note sits sharp, switches to double tonguing when the notes get fast,
-        and decides where to breathe. Its ear tells pitches apart as finely as a typical listener
-        (Nelson, Stanton &amp; Freyman, 1983), and its lungs follow measured pressure–volume data (Rahn et al., 1946).
+        Before playing, the player practices. For every fingering and blowing pressure it sweeps its lip tension and remembers where each note speaks and where it sits in tune. It also rehearses each phrase once, to learn how much air each note takes, and uses that to decide where to breathe.
+        While playing, it looks up the lip setting for each note, releases the tongue, presses the valves and breathes where it planned. After each note starts, the ear listens and nudges the lips toward the pitch, within the range real lips can bend a note (Boutin, Smith &amp; Wolfe, 2020).
+        What it learns is stored by action, not by piece, so practice on one piece carries over to the next.
       </p>
 
       <h3>A pianist with a body</h3>
+      <ul>
+        <li><strong>Arms:</strong> shoulder, upper arm, forearm and hand as rigid bodies with mass, sized from anthropometric data (NASA, 1978). Joint stiffness follows Franklin &amp; Milner (2003).</li>
+        <li><strong>Hands and fingers:</strong> five fingers per hand, three joints each, with bone lengths from Buryanov &amp; Kotiuk (2010). For black keys the hand moves further into the keyboard.</li>
+        <li><strong>Muscles:</strong> a pair at each joint, one to bend and one to straighten. Their strength comes from the muscle cross-sections measured by Valero-Cuevas, Zajac &amp; Burgar (1998).</li>
+        <li><strong>Fingertip pads:</strong> soft, springy and slightly sticky, after the measurements of Wu et al. (2003).</li>
+        <li><strong>Touch:</strong> the pianist feels the key under the finger. It adds the weight of the arm only once the fingertip is on the key, relaxes once the key reaches the bottom, and in fast repeated notes waits for the key to come back up.</li>
+        <li><strong>Ear:</strong> listens to each note it plays and, on the next one, plays a little harder if it came out weak or a little earlier if it came out late.</li>
+      </ul>
       <p>
-        Its arms, hands and fingers are built from anthropometric data (NASA, 1978), with finger muscles after
-        Valero-Cuevas et al. (1998) and fingertip pads after Wu et al. (2003). It calibrates its touch finger by
-        finger and rehearses before it plays. For its loudest notes it strikes the key from above, as pianists do
-        (Goebl et al., 2005; Furuya et al., 2010).
+        The score gives notes, timing and dynamics. The pianist chooses a fingering from those its hand can reach, then turns each dynamic into a hammer speed within the range measured on real pianos (Goebl, Bresin &amp; Galembo, 2005).
+        It practices on this piano. For each finger, key and force it learns how fast the hammer flies and how long the key takes to reach the string. For each change of finger it learns how early to start. It rehearses a new passage before playing it.
+        At the moment of playing, touch and ear correct what the practice tables cannot predict. The arm, muscles, pads and key are all simulated together, so a finger that slips or a key that is not yet back up affects the sound directly.
       </p>
 
       <!-- 未解决的问题 -->
@@ -336,6 +365,23 @@
         <li>Valero-Cuevas, F. J., Zajac, F. E. &amp; Burgar, C. G. Large index-fingertip forces are produced by subject-independent patterns of muscle excitation. <em>Journal of Biomechanics</em>, 1998.</li>
         <li>Wu, J. Z., Dong, R. G., Smutz, W. P. &amp; Rakheja, S. Dynamic interaction between a fingerpad and a flat surface: experiments and analysis. <em>Medical Engineering &amp; Physics</em>, 2003.</li>
         <li>Nelson, D., Stanton, M. &amp; Freyman, R. A general equation describing frequency discrimination as a function of frequency and sensation level. <em>JASA</em>, 1983.</li>
+        <li>Bilbao, S. Modelling of brass instrument valves. <em>Proc. DAFx-11</em>, 2011.</li>
+        <li>Harrison-Harsley, R. L. <em>Physical modelling of brass instruments using finite-difference time-domain methods.</em> PhD thesis, University of Edinburgh, 2018.</li>
+        <li>Braden, A. C. P. <em>Bore optimisation and impedance modelling of brass musical instruments.</em> PhD thesis, University of Edinburgh, 2006.</li>
+        <li>Newton, M. J., Campbell, M. &amp; Gilbert, J. Mechanical response measurements of real and artificial brass players lips. <em>JASA</em>, 2008.</li>
+        <li>Boutin, H., Smith, J. &amp; Wolfe, J. Trombone lip mechanics with inertive and compliant loads (“lipping up and down”). <em>JASA</em>, 2020.</li>
+        <li>Hirschberg, A., Gilbert, J., Msallam, R. &amp; Wijnands, A. P. J. Shock waves in trombones. <em>JASA</em>, 1996.</li>
+        <li>Silva, F., Guillemain, Ph., Kergomard, J., Mallaroni, B. &amp; Norris, A. N. Approximation formulae for the acoustic radiation impedance of a cylindrical pipe. <em>Journal of Sound and Vibration</em>, 2009.</li>
+        <li>Chafe, C. Pulsed noise in self-sustained oscillations of musical instruments. <em>Proc. ICASSP</em>, 1990.</li>
+        <li>Bouhuys, A. Lung volumes and breathing patterns in wind-instrument players. <em>Journal of Applied Physiology</em>, 1964.</li>
+        <li>Fletcher, N. H. &amp; Tarnopolsky, A. Blowing pressure, power, and spectrum in trumpet playing. <em>JASA</em>, 1999.</li>
+        <li>Hruška, V., Švejda, M. &amp; Guštar, M. Transients of the trumpet tone. <em>Proc. 3rd Vienna Talk on Music Acoustics</em>, 2015.</li>
+        <li>Li, W., Almeida, A., Smith, J. &amp; Wolfe, J. How clarinettists articulate: the effect of blowing pressure and tonguing on initial and final transients. <em>JASA</em>, 2016.</li>
+        <li>Bank, B., Zambon, S. &amp; Fontana, F. A modal-based real-time piano synthesizer. <em>IEEE Transactions on Audio, Speech, and Language Processing</em>, 2010.</li>
+        <li>Bank, B. &amp; Sujbert, L. Generation of longitudinal vibrations in piano strings: from physics to sound synthesis. <em>JASA</em>, 2005.</li>
+        <li>Askenfelt, A. (ed.) <em>Five Lectures on the Acoustics of the Piano.</em> Royal Swedish Academy of Music, 1990.</li>
+        <li>Buryanov, A. &amp; Kotiuk, V. Proportions of hand segments. <em>International Journal of Morphology</em>, 2010.</li>
+        <li>Franklin, D. W. &amp; Milner, T. E. Adaptive control of stiffness to stabilize hand position with large loads. <em>Experimental Brain Research</em>, 2003.</li>
         <li>Smith, J. O. <em>Physical Audio Signal Processing.</em> CCRMA, Stanford.</li>
       </ul>
     </article>
