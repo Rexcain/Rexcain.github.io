@@ -258,15 +258,14 @@
         <li><strong>Air column:</strong> a one-dimensional lossy horn equation, solved sample by sample by finite differences (Bilbao &amp; Chick, 2013), with the wall losses fitted as in Harrison-Harsley (2018).</li>
         <li><strong>Bore shape:</strong> the trumpet's is fitted to the seven impedance peaks measured by Bilbao &amp; Chick (2013), and lands within 1% of each. The trombone's is taken section by section from Braden's (2006) measurements of a real trombone. For the horn and tuba there are no published bore measurements, so I fitted their shapes to published dimensions and to their harmonic series.</li>
         <li><strong>Mouthpieces:</strong> manufacturers' published dimensions.</li>
-        <li><strong>Lips:</strong> two modes of vibration, one that swings outward and one that closes inward, with the parameters Cullen (2000) measured on artificial lips. Real players' lips show the same two modes (Newton, Campbell &amp; Gilbert, 2008). Lip width and mass follow Boutin, Smith &amp; Wolfe (2020).</li>
         <li><strong>Valves and slide:</strong> each valve joins three tubes and opens gradually as the piston moves (Bilbao, 2011). The pistons have mass, springs and felt stops and can be half-pressed; these mechanical values are my estimates. The trombone slide changes the length of tube smoothly between positions.</li>
         <li><strong>Brassiness:</strong> at loud dynamics the wave steepens as it travels (Hirschberg et al., 1996; Myers et al., 2012). The trumpet and horn model this in the straight part of the tube; the trombone and tuba model it along the whole bore.</li>
         <li><strong>Bell:</strong> sound radiates through a circuit that approximates the radiation of an open pipe (Silva et al., 2009).</li>
         <li><strong>Breath noise:</strong> turbulent noise in the air leaking through the lips, switched on and off as the lips open and close (Chafe, 1990).</li>
       </ul>
       <p>
-        The parts are joined in the order the air travels: lungs, mouth and vocal tract, lips, mouthpiece, tube with valves or slide, bell.
-        Neighbouring parts exchange pressure and air flow at every step. The lips are solved together with the mouth, so the air the lips let through lowers the pressure in the mouth, and the pressure in the mouthpiece pushes back on the lips.
+        The parts are joined in the order the air travels: mouthpiece, tube with valves or slide, bell. Neighbouring parts exchange pressure and air flow at every step.
+        The air comes in through the player's lips, which belong to the player's body and are described below.
         The simulation runs at 192 kHz and is brought down to 48 kHz for the renderer.
       </p>
 
@@ -280,42 +279,73 @@
         <li><strong>Radiation:</strong> the soundboard's motion is turned into sound pressure at one metre, as a single point source.</li>
       </ul>
       <p>
-        The parts are joined in the order a note travels: finger, key, action, hammer, strings, bridge, soundboard, sound.
+        The parts are joined in the order a note travels: key, action, hammer, strings, bridge, soundboard, sound.
         The hammer and the strings it strikes are solved together, and so are all the strings and the soundboard. Strings that are not played still ring along with the ones that are, whether or not the pedal is down.
-        The simulation runs at 96 kHz.
+        The simulation runs at 96 kHz. The pianist's fingertip pushes on the key, and the key pushes back.
       </p>
 
       <!-- 演奏者 -->
       <h2>The players</h2>
+      <p>A player is modeled in two layers: a body that touches the instrument, and the way it senses, practices and decides what to do.</p>
 
-      <h3>A brass player that practices like a student</h3>
+      <h3>Bodies</h3>
+      <p><strong>Brass player.</strong></p>
       <ul>
         <li><strong>Lungs:</strong> follow measured pressure–volume curves (Rahn et al., 1946) and the lung volumes of wind players (Bouhuys, 1964). As the air runs out, the lungs can no longer supply the pressure and the note sags.</li>
         <li><strong>Mouth and vocal tract:</strong> the mouth is an air volume. From the vocal folds to the lips is a 17 cm tube, computed the same way as the instrument's tube.</li>
         <li><strong>Tongue:</strong> a valve behind the teeth: tip for “t”, back for “k”. Releasing it starts the note (Hruška et al., 2015; Li et al., 2016).</li>
-        <li><strong>Embouchure:</strong> how tense the lips are, how far apart, and how hard to blow. Blowing pressure rises with pitch (Fletcher &amp; Tarnopolsky, 1999).</li>
-        <li><strong>Fingers:</strong> press the valves with a set force. The trombonist moves the slide from position to position.</li>
-        <li><strong>Ear:</strong> hears pitch differences as finely as a typical listener (Nelson, Stanton &amp; Freyman, 1983).</li>
+        <li><strong>Lips:</strong> two modes of vibration, one that swings outward and one that closes inward, with the parameters Cullen (2000) measured on artificial lips. Real players' lips show the same two modes (Newton, Campbell &amp; Gilbert, 2008). Lip width and mass follow Boutin, Smith &amp; Wolfe (2020). The player sets how tense they are, how far apart, and how hard to blow; blowing pressure rises with pitch (Fletcher &amp; Tarnopolsky, 1999).</li>
+        <li><strong>Fingers and arm:</strong> press the valves with a set force; the trombonist moves the slide from position to position.</li>
       </ul>
       <p>
-        Before playing, the player practices. For every fingering and blowing pressure it sweeps its lip tension and remembers where each note speaks and where it sits in tune. It also rehearses each phrase once, to learn how much air each note takes, and uses that to decide where to breathe.
-        While playing, it looks up the lip setting for each note, releases the tongue, presses the valves and breathes where it planned. After each note starts, the ear listens and nudges the lips toward the pitch, within the range real lips can bend a note (Boutin, Smith &amp; Wolfe, 2020).
-        What it learns is stored by action, not by piece, so practice on one piece carries over to the next.
+        The body is coupled to the instrument at the lips: the air the lips let through lowers the pressure in the mouth, and the pressure in the mouthpiece pushes back on the lips. Mouth, lips and instrument are solved together at every step.
       </p>
-
-      <h3>A pianist with a body</h3>
+      <p><strong>Pianist.</strong></p>
       <ul>
         <li><strong>Arms:</strong> shoulder, upper arm, forearm and hand as rigid bodies with mass, sized from anthropometric data (NASA, 1978). Joint stiffness follows Franklin &amp; Milner (2003).</li>
         <li><strong>Hands and fingers:</strong> five fingers per hand, three joints each, with bone lengths from Buryanov &amp; Kotiuk (2010). For black keys the hand moves further into the keyboard.</li>
         <li><strong>Muscles:</strong> a pair at each joint, one to bend and one to straighten. Their strength comes from the muscle cross-sections measured by Valero-Cuevas, Zajac &amp; Burgar (1998).</li>
-        <li><strong>Fingertip pads:</strong> soft, springy and slightly sticky, after the measurements of Wu et al. (2003).</li>
-        <li><strong>Touch:</strong> the pianist feels the key under the finger. It adds the weight of the arm only once the fingertip is on the key, relaxes once the key reaches the bottom, and in fast repeated notes waits for the key to come back up.</li>
-        <li><strong>Ear:</strong> listens to each note it plays and, on the next one, plays a little harder if it came out weak or a little earlier if it came out late.</li>
+        <li><strong>Fingertip pads:</strong> soft, springy and slightly sticky, after the measurements of Wu et al. (2003). The pad is where the finger and the key push on each other.</li>
+      </ul>
+
+      <h3>What a player is allowed to know</h3>
+      <p>
+        To a player, the instrument is a black box. It can use only what a human player has: its ears, its sense of touch, the score, its intention, and what it remembered from earlier practice.
+        The simulation knows much more, such as the exact air flow through the lips or the speed of each hammer. I use those values to check the physics, but they are kept out of what the player senses and out of what it is rewarded for. Where an experiment still breaks this rule, I note it.
+      </p>
+
+      <h3>Hearing and touch while playing</h3>
+      <ul>
+        <li><strong>Ear:</strong> hears pitch differences as finely as a typical listener (Nelson, Stanton &amp; Freyman, 1983). A human ear needs about 130 ms to react, so everything before that, like the lip setting at the start of a note, has to come from practice. After that, the ear corrects within the note.</li>
+        <li><strong>Brass, in the note:</strong> the ear listens to the mouthpiece and nudges the lips toward the right pitch, only as far as real lips can bend a note (Boutin, Smith &amp; Wolfe, 2020). If the note has slipped to a different harmonic, it is out of reach, and the player does not force it.</li>
+        <li><strong>Brass, across the phrase:</strong> the player watches how much air is left and breathes where it planned. When the air runs short, the note sags physically. It does not yet decide on its own to shape the phrase around it.</li>
+        <li><strong>Piano, touch:</strong> the pianist feels the key under the fingertip. It adds the weight of the arm only once the fingertip is on the key, relaxes once the key reaches the bottom, and in fast repeated notes waits until it feels the key come back up.</li>
+        <li><strong>Piano, ear:</strong> listens to each note it plays. On the next note it plays a little harder if this one came out weak, or a little earlier if it came out late.</li>
+      </ul>
+
+      <h3>Practice tables</h3>
+      <p>
+        Before it performs, a player practices on its instrument and writes down what it learned. Each entry is indexed by an action, not by a piece, so what it learns on one piece carries over to the next. Each table is also tagged with the exact version of the instrument and the player it was learned on. When the physics changes, the old entries are not reused.
+      </p>
+      <ul>
+        <li><strong>Brass, lip map:</strong> for every fingering and blowing pressure, the player sweeps its lip tension and records where each note speaks and where it sits in tune. A setting counts as learned only when it is in tune within what its ear can hear.</li>
+        <li><strong>Brass, breath:</strong> before playing a phrase for the first time, the player rehearses it once and records how much air each note takes. It then picks where to breathe so that every breath lasts, with as few breaths as possible and none in the middle of a slur. Rahn et al. (1946) give how the lungs behave; when to inhale follows Cugell (1986).</li>
+        <li><strong>Piano, touch table:</strong> for each finger, key, starting height and force, the pianist records how fast the hammer flies and how long the key takes to reach the string.</li>
+        <li><strong>Piano, change table:</strong> for each move from one finger and key to the next, the pianist records how early to start and how much to adjust the force. A new passage is rehearsed before it is played.</li>
+      </ul>
+
+      <h3>Reinforcement learning</h3>
+      <p>
+        Practice tables correct one quantity at a time, toward a target. Some problems have no single target. A note can be in tune and still start dirty, lock in slowly or come out too soft. For these I am testing reinforcement learning. The player tries variations of one or two actions that a human would actually control, and keeps the variations that a reward prefers. The reward lowers the score when a note fails to sound, lands on the wrong harmonic, is late, too soft or cut short.
+      </p>
+      <ul>
+        <li><strong>Brass, from one note to the next:</strong> for each kind of note change, the player learns how to set its lips just before the new note and how quickly to release the tongue or slide the lips. The reward comes only from what its ear hears in the first moments of the new note.</li>
+        <li><strong>Piano, fast repeated notes:</strong> the pianist learns when to let go after the key gives way, how high to wait above the bottom, and how far the key must come back before pressing again. This reward still uses the hammer's speed and timing from the simulation, which a pianist cannot sense. It is the one place where the rule above is still broken.</li>
       </ul>
       <p>
-        The score gives notes, timing and dynamics. The pianist chooses a fingering from those its hand can reach, then turns each dynamic into a hammer speed within the range measured on real pianos (Goebl, Bresin &amp; Galembo, 2005).
-        It practices on this piano. For each finger, key and force it learns how fast the hammer flies and how long the key takes to reach the string. For each change of finger it learns how early to start. It rehearses a new passage before playing it.
-        At the moment of playing, touch and ear correct what the practice tables cannot predict. The arm, muscles, pads and key are all simulated together, so a finger that slips or a key that is not yet back up affects the sound directly.
+        Both use a simple search over a few parameters (the cross-entropy method), not a deep neural network. Systems that learn from sound and adjust only a few parameters, such as Percival, Bailey &amp; Tzanetakis's (2011) virtual violinist, do the same. Deep-learning piano and drum robots need millions of trials and one network per piece, and they read key positions no human can sense (Zakka et al., 2023).
+        Each learned version is tested three ways, as in Continual World (Wołczyk et al., 2021). Does the practiced phrase improve? Does the skill carry over to phrases it has not practiced? Does it spoil skills the player already had?
+        So far the practiced phrases improved, but on some unpracticed phrases the learned habit made things worse. The learned versions are therefore not yet used in the default renders.
       </p>
 
       <!-- 未解决的问题 -->
@@ -382,6 +412,10 @@
         <li>Askenfelt, A. (ed.) <em>Five Lectures on the Acoustics of the Piano.</em> Royal Swedish Academy of Music, 1990.</li>
         <li>Buryanov, A. &amp; Kotiuk, V. Proportions of hand segments. <em>International Journal of Morphology</em>, 2010.</li>
         <li>Franklin, D. W. &amp; Milner, T. E. Adaptive control of stiffness to stabilize hand position with large loads. <em>Experimental Brain Research</em>, 2003.</li>
+        <li>Cugell, D. W. Interaction of chest wall and abdominal muscles in wind instrument players. <em>Cleveland Clinic Quarterly</em>, 1986.</li>
+        <li>Percival, G., Bailey, N. &amp; Tzanetakis, G. Physical modeling meets machine learning: teaching bow control to a virtual violinist. <em>Proc. Sound and Music Computing Conference</em>, 2011.</li>
+        <li>Zakka, K. et al. RoboPianist: dexterous piano playing with deep reinforcement learning. <em>Conference on Robot Learning</em>, 2023.</li>
+        <li>Wołczyk, M. et al. Continual World: a robotic benchmark for continual reinforcement learning. <em>NeurIPS</em>, 2021.</li>
         <li>Smith, J. O. <em>Physical Audio Signal Processing.</em> CCRMA, Stanford.</li>
       </ul>
     </article>
