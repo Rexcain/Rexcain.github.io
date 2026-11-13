@@ -6,7 +6,7 @@
 ## 近期待办
 
 1. ~~首页空白区块~~（2026-11-05 已填：About、Current research、Also）。
-1a. ~~研究页试听~~（2026-11-06 已放，gain staging 渲染）。钢琴试听待做（页面写 Coming soon）。
+1a. ~~研究页试听~~（2026-11-06 已放，gain staging 渲染）。钢琴试听 2026-11-12 已放。
 1b. **CV PDF**：Bio 页加 CV 下载链接。
 2. **分享图 og:image**：各页已有 Open Graph 标题和描述，但没有 `og:image`。需要做一张 1200×630 的分享图放进 `assets/images/`，在每页 `<head>` 加 `og:image`，并把 `twitter:card` 改为 `summary_large_image`。
 3. ~~Chiptune 状态措辞~~（2026-11-05 已改为 "Early prototype"）。

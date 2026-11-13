@@ -67,7 +67,7 @@
 
       <!-- 试听 -->
       <h2 id="listen">Listen</h2>
-      <p>The instruments and the players are both modeled on physical mechanisms. In each pair, the score stays the same and one condition changes.</p>
+      <p>What changes when a trumpeter adjusts their lips or a pianist shifts the weight of their arm? These clips put different ways of playing and modeling the instruments side by side.</p>
 
       <h3>Multiphonics</h3>
       <p>Same fingering, different lips.</p>
@@ -144,8 +144,83 @@
         </li>
       </ul>
 
-      <h3>Piano</h3>
-      <p class="note">Coming soon.</p>
+      <h3>Piano: practicing by ear</h3>
+      <p>The same D-major chord before and after a short voicing exercise in C major. During the exercise, the pianist listens to how loud the top note is. Both D-major takes use the same gain.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">D major, before practice</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-unpracticed.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">D major, after practicing C major by ear</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-practiced.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Piano: arm weight</h3>
+      <p>Two ways into the same chord. In the first take, the pianist pushes with the hand. In the second, the weight of the arm comes onto the keys a little earlier. The third clip is a C-major chord from the pianist’s second practice pass.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Pushing with the hand</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-push.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Arm weight released early</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-arm-weight.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">C major, second practice pass</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-second-pass.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Piano: sympathetic strings</h3>
+      <p>What part do the other strings play in the sound that lingers after you lift your fingers? The same chord is played twice, first with all the strings in the piano model, then with just the strings near the notes being played.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Every string</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-whole-piano.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Only nearby strings</span>
+          <audio controls preload="none" src="assets/audio/piano-chord-nearby-strings.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Piano: dampers</h3>
+      <p>One clip plays middle C. The other moves only the sustain pedal. Each repeats the same gesture before and after a change to a step in the way the model calculates damper motion.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">One C4</span>
+          <audio controls preload="none" src="assets/audio/piano-c4-damper-ab.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">Pedal only, no keys</span>
+          <audio controls preload="none" src="assets/audio/piano-pedal-ab.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Piano: fast repeated notes</h3>
+      <p>A quick run of repeated notes, first as metronome-like clicks at the written rhythm. Then the same finger motion drives two versions of the piano action. How does each one handle the rhythm?</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Rhythm reference and two piano renders</span>
+          <audio controls preload="none" src="assets/audio/piano-repeated-notes.mp3"></audio>
+        </li>
+      </ul>
+
+      <h3>Piano: Schubert</h3>
+      <p>Two takes of the opening phrase of Schubert’s <em>Moment musical</em> D. 780 No. 6, before and after the pianist practices. The second clip starts again from the beginning and plays through the first minute with the same settings as the practiced take.</p>
+      <ul class="audio-list">
+        <li>
+          <span class="audio-title">Opening, before and after practice</span>
+          <audio controls preload="none" src="assets/audio/schubert-opening-ab.mp3"></audio>
+        </li>
+        <li>
+          <span class="audio-title">First minute</span>
+          <audio controls preload="none" src="assets/audio/schubert-first-minute.mp3"></audio>
+        </li>
+      </ul>
 
       <!-- 乐器 -->
       <h2>The instruments</h2>
@@ -199,7 +274,7 @@
       <!-- 方向 -->
       <h2>Next</h2>
       <ul>
-        <li>Piano: rebuilding the pianist on the same practice model as the brass player, so it learns its own touch and fingering. Audio coming soon.</li>
+        <li>Piano: rebuilding the pianist on the same practice model as the brass player, so it learns its own touch and fingering.</li>
         <li>Brass multiphonics by singing while playing, through a vocal tract coupled to the player's mouth, and lip parameters suited to low brass.</li>
         <li>The rest of the practice course: common melodies, multiphonics inside a melody, and playing without a mouthpiece.</li>
         <li>Upright bass and drum kit, toward a jazz quartet of virtual players.</li>
@@ -209,9 +284,10 @@
       <!-- 工作方式 -->
       <h2>How I work</h2>
       <p>
-        I set the direction, listen to every render, and make the musical and physical judgments. Much of the
-        implementation is written with Claude Code, and every design decision is documented next to the code with
-        its sources. The instruments render through a headless offline DAW I built for this project.
+        I set the direction, listen to every render, and make the musical and physical judgments. My ear is the
+        final criterion; measurements locate causes and catch destructive errors. Each listening round asks one
+        question, with the same score, seed and gain. Every design decision is documented next to the code with
+        its sources, and the findings that hold up will become a paper. The instruments render through an audio renderer I built for this project.
       </p>
 
       <!-- 参考文献 -->
