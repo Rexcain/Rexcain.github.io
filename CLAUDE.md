@@ -27,7 +27,8 @@
 - Software 页项目：theREALinst（链到 research.html）、Palinmnesia、Multi-Agents Video Game（gameDev）。Chiptune Noisemaker 和 Envelope Ledger 已按 Rx 要求从网站删掉（2026-11-06）。仓库都是私有的，卡片不放仓库链接。卡片平时灰框（#555），悬停变黄。
 - **音频响度（Rx 定，不能违反）**：不做任何数字归一（不用 ffmpeg `loudnorm`、不靠母线 `lufs=` 自动调）。用 gain staging：母线 `lufs=none push=none ceiling=-1`，按原始电平设轨道 `fader` 让混音过 limiter 落在 −14 LUFS；同一组对比共用一个推子（按参考段），组内的响度差是现象的一部分。导出 MP3 时不再加增益。
 - **没法原样重渲的旧试听**（Rx 2026-11-12）：音频保留 Rx 听过的那一版，不重渲乐器；放进 theREALinst 的 DAW 当 clip 轨（乐器 `-`），推子做 gain staging，母线 `lufs=none push=none inTrim=0`、链里只有 `limiter ceil=-1 truePeak=1`。同组共用一个推子，按参考段对 −14 LUFS；限制器最多压约 3 dB，所以个别组低于 −14。
-- **试听只给对比、不下结论**（Rx 2026-11-12）：每组只写 hypothesis 和 method，不写听感结论或引导语（如 "More confident"、"never speak"、"still fails"），让听者自己判断。
+- **试听只给对比、不下结论**（Rx 2026-11-12）：每组只写 hypothesis 和 method，不写听感结论或引导语（如 "More confident"、"never speak"、"still fails"），让听者自己判断。例外（Rx 2026-11-13）：钢琴连击、舒伯特两组是时间线，从初版排到目前最新的一版，每一版写当时的状态和 Rx 听出的问题；Piano: dampers 写明两声为什么不一样。
+- **听不出区别的对比不放**（Rx 2026-11-13）；说明要让不了解这个项目的人读得懂。
 - 研究页 Listen 一节的方向（Rx 定）：强调乐器和演奏者按真实物理机制建模、能再现物理世界的现象（同指法不同唇形 / 气的多音、没练过的演奏者吹不准、气息不稳音色不稳、力量不够高音发虚），不强调"没有采样"。钢琴暂写 Coming soon。
 - 研究页里的数字和文献都出自 theREALinst 的 `Docs/` 设计文档和 `Research/README.en.md`，改之前先核对原文。
 - commit 和开发者日志注明时间戳和设备（laptop 或 mac-mini；云端会话另行注明）。作者统一写 Menghan Rex Jiang。
@@ -37,6 +38,10 @@
 见 `PLAN.md`。
 
 ## 开发者日志
+
+### 2026-11-13 12:45 EST · mac-mini
+- 研究页 Listen：加 Brass quintet（埃瓦尔德第一乐章练前 / 练后，同一厅混响版，整个乐章，只放合奏）；删掉 Piano: practicing by ear、Piano: sympathetic strings；arm weight 第三段和 dampers 的说明改成直白的解释；连击改成 7 段时间线（两段 expected rhythm 单独成件），舒伯特改成同一段开头的 3 段时间线。
+- 音频只用 theREALinst `试听/` 里已有的录音，没有重渲乐器；按 clip 轨办法做 gain staging，同组一个推子（五重奏 +6.7 dB、连击 +22.3 dB、舒伯特 +7.5 dB）。
 
 ### 2026-11-12 23:30 EST · mac-mini
 - 研究页 Listen：钢琴的 Coming soon 换成钢琴听例（靠听练习、手臂重量、整琴共鸣）；加制音器、More examples（连击、舒伯特）；每组只写 hypothesis 和 method。17 段 MP3 按上面的 clip 轨办法做 gain staging。
